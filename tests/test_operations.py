@@ -33,6 +33,7 @@ Number = Union[int, float]
         (-1, 1, 0),          # Test adding a negative and a positive integer
         (2.5, 3.5, 6.0),     # Test adding two positive floats
         (-2.5, 3.5, 1.0),    # Test adding a negative float and a positive float
+        (-5.6, 0, -5.6),     # Test adding a negative float and zero
     ],
     ids=[
         "add_two_positive_integers",
@@ -40,6 +41,7 @@ Number = Union[int, float]
         "add_negative_and_positive_integer",
         "add_two_positive_floats",
         "add_negative_float_and_positive_float",
+        "add_negativate_float_and_zero"
     ]
 )
 def test_addition(a: Number, b: Number, expected: Number) -> None:
@@ -83,6 +85,7 @@ def test_addition(a: Number, b: Number, expected: Number) -> None:
         (-5, -3, -2),        # Test subtracting a negative integer from another negative integer
         (10.5, 5.5, 5.0),    # Test subtracting two positive floats
         (-10.5, -5.5, -5.0), # Test subtracting two negative floats
+        (-5.6, 0, -5.6),     # Test subtracting a negative float and zero
     ],
     ids=[
         "subtract_smaller_positive_integer_from_larger",
@@ -90,6 +93,7 @@ def test_addition(a: Number, b: Number, expected: Number) -> None:
         "subtract_negative_integer_from_negative_integer",
         "subtract_two_positive_floats",
         "subtract_two_negative_floats",
+        "subtract_negativate_float_and_zero"
     ]
 )
 def test_subtraction(a: Number, b: Number, expected: Number) -> None:
@@ -133,6 +137,7 @@ def test_subtraction(a: Number, b: Number, expected: Number) -> None:
         (-2, -3, 6),         # Test multiplying two negative integers
         (2.5, 4.0, 10.0),    # Test multiplying two positive floats
         (-2.5, 4.0, -10.0),  # Test multiplying a negative float with a positive float
+        (-5.6, 0, 0),        # Test multiplying a negative float with zero
     ],
     ids=[
         "multiply_two_positive_integers",
@@ -140,6 +145,7 @@ def test_subtraction(a: Number, b: Number, expected: Number) -> None:
         "multiply_two_negative_integers",
         "multiply_two_positive_floats",
         "multiply_negative_float_with_positive_float",
+        "multiply_negative_float_with_zero"
     ]
 )
 def test_multiplication(a: Number, b: Number, expected: Number) -> None:
@@ -181,7 +187,8 @@ def test_multiplication(a: Number, b: Number, expected: Number) -> None:
         (-6, -3, 2.0),         # Test dividing two negative integers
         (6.0, 3.0, 2.0),       # Test dividing two positive floats
         (-6.0, 3.0, -2.0),     # Test dividing a negative float by a positive float
-        (0, 5, 0.0),            # Test dividing zero by a positive integer
+        (0, 5, 0.0),           # Test dividing zero by a positive integer
+        (0, -5.6, 0),          # Test dividing zero by a negative float
     ],
     ids=[
         "divide_two_positive_integers",
@@ -189,6 +196,7 @@ def test_multiplication(a: Number, b: Number, expected: Number) -> None:
         "divide_two_positive_floats",
         "divide_negative_float_by_positive_float",
         "divide_zero_by_positive_integer",
+        "divide_zero_by_negative_float",
     ]
 )
 def test_division(a: Number, b: Number, expected: float) -> None:
